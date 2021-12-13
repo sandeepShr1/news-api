@@ -18,14 +18,14 @@ const NewsItem = (props) => {
     const classes = useStyles()
     const { news } = props;
     return (
-        <Card className={classes.card} sx={{ maxWidth: 345 }} >
+        <Card className={classes.card} sx={{ maxWidth: 400 }} >
             <CardMedia
                 component="img"
                 height="140"
                 image={news.urlToImage}
             />
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
+                <Typography gutterBottom variant="h6" component="div">
                     {news.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">

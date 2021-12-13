@@ -67,10 +67,10 @@ const News = () => {
                 hasMore={true}
                 loader={news.length === totalResults ? null : <Spinner />}
             >
-                <div className="container">
+                <div className="mx-4">
                     {news.length === 0 ? "No news to display" : <div className="row justify-content-evenly">
                         {news.map((news) => {
-                            return <div className="col-md-3 my-2" key={news.url} >
+                            return <div className="col-md-6 col-lg-3 my-2" key={news.title} >
                                 <NewsItem news={news} />
                             </div>
                         })}
@@ -82,4 +82,4 @@ const News = () => {
     )
 }
 
-export default News
+export default News;
