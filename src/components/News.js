@@ -14,7 +14,7 @@ const useStyles = makeStyles({
     }
 })
 
-const News = () => {
+const News = (props) => {
     const classes = useStyles()
     const [news, setNews] = useState([]);
     const [page, setPage] = useState(1);
@@ -32,6 +32,7 @@ const News = () => {
     };
 
     useEffect(() => {
+        props.setProgress(10)
         setLoading(true)
         const fetchData = async () => {
             let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=78b9d77c7f0844b8a1a0dde14bc9dbf3&page=${page}&pageSize=8`;
@@ -39,10 +40,12 @@ const News = () => {
             let parseData = await data.json();
             let results = parseData.articles;
             let totalResults = parseData.totalResults;
+            props.setProgress(40)
             console.log(parseData)
             setNews(results)
             setTotalResults(totalResults)
             setLoading(false)
+            props.setProgress(100)
         }
         fetchData()
         // eslint-disable-next-line react-hooks/exhaustive-deps
